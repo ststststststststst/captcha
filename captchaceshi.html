@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>验证码验证</title>
+<style>
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+  }
+
+  .message {
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+
+<iframe src="https://ststststststststst.github.io/captchayanzheng" style="width: 320px; height: 200px; border-width: initial; border-style: none; box-shadow: rgba(0, 0, 0, 0.1) 2px 2px 8px;"></iframe>
+
+<div class="message" id="message"></div>
+
+<script>
+  window.addEventListener('message', (event) => {
+    // 验证消息来源
+    if (event.origin === 'https://ststststststststst.github.io') {
+      const messageElement = document.getElementById('message');
+      const message = event.data;
+
+      if (message === 'ok') {
+        messageElement.innerText = '恭喜，验证成功！';
+        messageElement.style.color = 'green';
+        
+      } else if (message === 'notok') {
+        messageElement.innerText = '咋啦？记得区分大小写哦~';
+        messageElement.style.color = 'red';
+        
+      }
+    }
+  });
+
+</script>
+
+</body>
+</html>
